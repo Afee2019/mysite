@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block page_title %}
+    <h1 class="page-title"> 员工信息表
+        <small>超图软件员工列表</small>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="icon-settings font-dark"></i>
+                        <span class="caption-subject bold uppercase">列标题可调整</span>
+                    </div>
+                    <div class="tools"></div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover" id="sample_1">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>工号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>所属部门</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in myemp %}
+                            <tr>
+                                {% for elem in row %}
+                                    <td>{{ elem }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+
+        </div>
+    </div>
+{% endblock %}
