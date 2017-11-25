@@ -8,6 +8,7 @@ from .RandomName1 import get_random_name
 
 import random
 
+from .models import Emp
 
 
 
@@ -25,25 +26,28 @@ def add(request, a, b):
     return HttpResponse(str(a+b))
 
 
+# def emp_list(request):
+#     cnx = con.connect(host='localhost',
+#                       port=3306,
+#                       user='root',
+#                       passwd='supermap',
+#                       database='test03',
+#                       charset='utf8')
+#
+#     cur = cnx.cursor()
+#
+#     strSQL = 'select * from emp'
+#
+#     cur.execute(strSQL)
+#
+#     cur.close()
+#     cnx.close()
+#
+#     # return HttpResponse(strHeader+strMid+strTail)
+#     return render(request, 'emp/list1.html', {'myemp': cur})
+
 def emp_list(request):
-    cnx = con.connect(host='localhost',
-                      port=3306,
-                      user='root',
-                      passwd='supermap',
-                      database='test03',
-                      charset='utf8')
-
-    cur = cnx.cursor()
-
-    strSQL = 'select * from emp'
-
-    cur.execute(strSQL)
-
-    cur.close()
-    cnx.close()
-
-    # return HttpResponse(strHeader+strMid+strTail)
-    return render(request, 'emp/list1.html', {'myemp': cur})
+    return render(request,  'emp/list1.html', {'myemp': Emp.objects.all()})
 
 
 def insert(request):

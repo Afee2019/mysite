@@ -29,14 +29,18 @@
                             <th>姓名</th>
                             <th>性别</th>
                             <th>所属部门</th>
+                            <th>邮箱</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for row in myemp %}
                             <tr>
-                                {% for elem in row %}
-                                    <td>{{ elem }}</td>
-                                {% endfor %}
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.emp_no }}</td>
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.gender }}</td>
+                                <td>{{ row.dept }}</td>
+                                <td>{{ row.email }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

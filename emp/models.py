@@ -25,5 +25,3 @@ class Emp(models.Model):
         return self.name
 
 
-
-
