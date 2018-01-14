@@ -14,5 +14,5 @@ urlpatterns = [
 
 
     path('list/', views.emp_list, name='list'),
-    path('insert/', views.insert, name='insert'),
+    # path('insert/', views.insert, name='insert'),
 ]

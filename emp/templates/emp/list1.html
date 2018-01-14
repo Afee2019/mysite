@@ -24,23 +24,33 @@
                     <table class="table table-striped table-bordered table-hover" id="sample_1">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>编号</th>
                             <th>工号</th>
                             <th>姓名</th>
                             <th>性别</th>
-                            <th>所属部门</th>
-                            <th>邮箱</th>
+                            <th>身份证号</th>
+                            <th>生日</th>
+                            <th>籍贯</th>
+                            <th>PostAct</th>
+                            <th>CasteName</th>
+                            <th>已删除</th>
+                            <th>离职时间</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for row in myemp %}
                             <tr>
-                                <td>{{ row.id }}</td>
-                                <td>{{ row.emp_no }}</td>
-                                <td>{{ row.name }}</td>
-                                <td>{{ row.gender }}</td>
-                                <td>{{ row.dept }}</td>
-                                <td>{{ row.email }}</td>
+                                <td>{{ row.StaffID }}</td>
+                                <td>{{ row.StaffCode }}</td>
+                                <td>{{ row.StaffName }}</td>
+                                <td>{{ row.Sex }}</td>
+                                <td>{{ row.IDcardNum }}</td>
+                                <td>{{ row.Birthday }}</td>
+                                <td>{{ row.NativePlace }}</td>
+                                <td>{{ row.PostAct }}</td>
+                                <td>{{ row.CasteName }}</td>
+                                <td>{{ row.Isdelete }}</td>
+                                <td>{{ row.LeaveDate }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

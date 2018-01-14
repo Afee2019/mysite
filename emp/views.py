@@ -8,7 +8,8 @@ from .RandomName1 import get_random_name
 
 import random
 
-from .models import Emp, Dept
+from .models import e_Staff
+from pinyin import PinYin
 
 
 
@@ -47,7 +48,8 @@ def add(request, a, b):
 #     return render(request, 'emp/list1.html', {'myemp': cur})
 
 def emp_list(request):
-    return render(request,  'emp/list1.html', {'myemp': Emp.objects.all()})
+    return render(request,  'emp/list1.html',
+                  {'myemp': e_Staff.objects.filter(Isdelete=0).filter(PostAct=1)})
 
 
 # def insert(request):
@@ -96,16 +98,20 @@ def emp_list(request):
 #
 #     return render(request, 'emp/list1.html', {'myemp': cur})
 
-def insert(request):
-    new_emp_no = Emp.objects.all().order_by('-emp_no')[0].emp_no + 1
-    strName = get_random_name()
-    gender = random.choice(['男', '女'])
-    d = Dept.objects.all()[0]
-    email = 'abc@supermap.com'
-
-    a = Emp(emp_no=new_emp_no, name=strName, gender=gender, dept=d, email=email)
-
-    a.save()
-
-    return render(request, 'emp/list1.html', {'myemp': Emp.objects.all()})
+# def insert(request):
+#     new_emp_no = Emp.objects.all().order_by('-emp_no')[0].emp_no + 1
+#     strName = get_random_name()
+#     gender = random.choice(['男', '女'])
+#     d = Dept.objects.all()[0]
+#     # email = 'abc@supermap.com'
+#     test = PinYin()
+#     test.load_word()
+#     strPinYin = test.hanzi2pinyin_split(string=strName, split="-")
+#     strPinYin = strPinYin.replace('-','')+'@supermap.com'
+#
+#     a = Emp(emp_no=new_emp_no, name=strName, gender=gender, dept=d, email=strPinYin)
+#
+#     a.save()
+#
+#     return render(request, 'emp/list1.html', {'myemp': Emp.objects.all()})
 
